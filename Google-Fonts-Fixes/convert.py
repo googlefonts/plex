@@ -29,21 +29,21 @@ ttFont["name"].setName(
     0x409,
 )
 
-# Copyright Notice
-ttFont["name"].setName(
-    "Copyright 2018 The IBM Plex Project Authors (https://github.com/ibm/plex/)",
-    0,
-    1,
-    0,
-    0,
-)
-ttFont["name"].setName(
-    "Copyright 2018 The IBM Plex Project Authors (https://github.com/ibm/plex/)",
-    0,
-    3,
-    1,
-    0x409,
-)
+# # Copyright Notice
+# ttFont["name"].setName(
+#     "Copyright 2018 The IBM Plex Project Authors (https://github.com/ibm/plex/)",
+#     0,
+#     1,
+#     0,
+#     0,
+# )
+# ttFont["name"].setName(
+#     "Copyright 2018 The IBM Plex Project Authors (https://github.com/ibm/plex/)",
+#     0,
+#     3,
+#     1,
+#     0x409,
+# )
 
 # Get original postScriptName
 originalPostScriptName = ttFont["name"].getName(6, 1, 0, 0).toUnicode()

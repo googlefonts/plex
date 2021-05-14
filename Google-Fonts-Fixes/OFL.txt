@@ -1,4 +1,4 @@
-Copyright 2018 IBM Corp. (https://github.com/ibm/plex/) with Reserved Font Name "Plex"
+Copyright 2018 IBM Corp. with Reserved Font Name "Plex"
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 
