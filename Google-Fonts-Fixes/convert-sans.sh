@@ -1,0 +1,1 @@
+sh Google-Fonts-Fixes/convert.sh "IBM-Plex-Sans/fonts/complete/ttf" "Google-Fonts-Fixes/IBM-Plex-Sans/fonts/complete/ttf"
