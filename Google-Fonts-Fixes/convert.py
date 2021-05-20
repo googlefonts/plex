@@ -29,6 +29,216 @@ ttFont["name"].setName(
     0x409,
 )
 
+# Get family name
+if ttFont["name"].getName(16, 1, 0, 0):
+    familyName = ttFont["name"].getName(16, 1, 0, 0).toUnicode()
+else:
+    familyName = ttFont["name"].getName(1, 1, 0, 0).toUnicode()
+
+# Get style name
+if ttFont["name"].getName(17, 1, 0, 0):
+    styleName = ttFont["name"].getName(17, 1, 0, 0).toUnicode()
+else:
+    styleName = ttFont["name"].getName(2, 1, 0, 0).toUnicode()
+
+print(familyName, styleName)
+
+map = {
+    "upright": {
+        100: {
+            1: "Family Name Thin",
+            2: "Regular",
+            16: "Family Name",
+            17: "Thin",
+            "fsSelection": 6,
+            "macStyle": None,
+        },
+        200: {
+            1: "Family Name ExtraLight",
+            2: "Regular",
+            16: "Family Name",
+            17: "ExtraLight",
+            "fsSelection": 6,
+            "macStyle": None,
+        },
+        300: {
+            1: "Family Name Light",
+            2: "Regular",
+            16: "Family Name",
+            17: "Light",
+            "fsSelection": 6,
+            "macStyle": None,
+        },
+        400: {
+            1: "Family Name",
+            2: "Regular",
+            16: None,
+            17: None,
+            "fsSelection": 6,
+            "macStyle": None,
+        },
+        500: {
+            1: "Family Name Medium",
+            2: "Regular",
+            16: "Family Name",
+            17: "Medium",
+            "fsSelection": 6,
+            "macStyle": None,
+        },
+        600: {
+            1: "Family Name SemiBold",
+            2: "Regular",
+            16: "Family Name",
+            17: "SemiBold",
+            "fsSelection": 6,
+            "macStyle": None,
+        },
+        700: {
+            1: "Family Name",
+            2: "Bold",
+            16: None,
+            17: None,
+            "fsSelection": 5,
+            "macStyle": 0,
+        },
+        800: {
+            1: "Family Name ExtraBold",
+            2: "Regular",
+            16: "Family Name",
+            17: "ExtraBold",
+            "fsSelection": 6,
+            "macStyle": None,
+        },
+        800: {
+            1: "Family Name Black",
+            2: "Regular",
+            16: "Family Name",
+            17: "Black",
+            "fsSelection": 6,
+            "macStyle": None,
+        },
+    },
+    "italic": {
+        100: {
+            1: "Family Name Thin",
+            2: "Italic",
+            16: "Family Name",
+            17: "Thin",
+            "fsSelection": 0,
+            "macStyle": 1,
+        },
+        200: {
+            1: "Family Name ExtraLight",
+            2: "Italic",
+            16: "Family Name",
+            17: "ExtraLight",
+            "fsSelection": 0,
+            "macStyle": 1,
+        },
+        300: {
+            1: "Family Name Light",
+            2: "Italic",
+            16: "Family Name",
+            17: "Light",
+            "fsSelection": 0,
+            "macStyle": 1,
+        },
+        400: {
+            1: "Family Name",
+            2: "Italic",
+            16: None,
+            17: None,
+            "fsSelection": 0,
+            "macStyle": 1,
+        },
+        500: {
+            1: "Family Name Medium",
+            2: "Italic",
+            16: "Family Name",
+            17: "Medium",
+            "fsSelection": 0,
+            "macStyle": 1,
+        },
+        600: {
+            1: "Family Name SemiBold",
+            2: "Italic",
+            16: "Family Name",
+            17: "SemiBold",
+            "fsSelection": 0,
+            "macStyle": 1,
+        },
+        700: {
+            1: "Family Name",
+            2: "Bold Italic",
+            16: None,
+            17: None,
+            "fsSelection": [5, 1],
+            "macStyle": [0, 1],
+        },
+        800: {
+            1: "Family Name ExtraBold",
+            2: "Italic",
+            16: "Family Name",
+            17: "ExtraBold",
+            "fsSelection": 0,
+            "macStyle": 1,
+        },
+        800: {
+            1: "Family Name Black",
+            2: "Italic",
+            16: "Family Name",
+            17: "Black",
+            "fsSelection": 0,
+            "macStyle": 1,
+        },
+    },
+}
+
+variant = "italic" if "Italic" in styleName else "upright"
+weightClass = ttFont["OS/2"].usWeightClass
+
+# Apply style map
+if not weightClass in map[variant]:
+    raise Exception(f"Weight class {weightClass} is unsupported by this script.")
+
+# Continue
+for key in map[variant][weightClass]:
+    # Name records
+    if type(key) == int:
+        # Set name record
+        if type(map[variant][weightClass][key]) == str:
+            string = map[variant][weightClass][key].replace("Family Name", familyName)
+            ttFont["name"].setName(string, key, 1, 0, 0)
+            ttFont["name"].setName(string, key, 3, 1, 0x409)
+        # Delete name record
+        elif map[variant][weightClass][key] == None:
+            ttFont["name"].removeNames(key, 1, 0, 0)
+            ttFont["name"].removeNames(key, 3, 1, 0x409)
+    # Other
+    elif type(key) == str:
+
+        # Read
+        if key == "fsSelection":
+            bit = ttFont["OS/2"].fsSelection
+        elif key == "macStyle":
+            bit = ttFont["head"].macStyle
+
+        # Adjust
+        values = map[variant][weightClass][key]
+        if type(values) != list:
+            values = [values]
+        for value in values:
+            if value != None:
+                bit |= 1 << value
+                print(f"Setting {bit} to {value}")
+
+        # Apply
+        if key == "fsSelection":
+            ttFont["OS/2"].fsSelection = bit
+        elif key == "macStyle":
+            ttFont["head"].macStyle = bit
+
+
 # # Copyright Notice
 # ttFont["name"].setName(
 #     "Copyright 2018 The IBM Plex Project Authors (https://github.com/ibm/plex/)",
@@ -83,23 +293,23 @@ for record in ttFont["name"].names:
     )
 
 
-# Use Typographic Family Name as Family Name
-if ttFont["name"].getName(16, 1, 0, 0):
-    familyName = ttFont["name"].getName(16, 1, 0, 0).toUnicode()
-    ttFont["name"].setName(familyName, 1, 1, 0, 0)
-    ttFont["name"].setName(familyName, 1, 3, 1, 0x409)
-    ttFont["name"].removeNames(16, 1, 0, 0)
-    ttFont["name"].removeNames(16, 3, 1, 0x409)
-if ttFont["name"].getName(17, 1, 0, 0):
-    styleName = ttFont["name"].getName(17, 1, 0, 0).toUnicode()
-    ttFont["name"].setName(styleName, 2, 1, 0, 0)
-    ttFont["name"].setName(styleName, 2, 3, 1, 0x409)
-    ttFont["name"].removeNames(17, 1, 0, 0)
-    ttFont["name"].removeNames(17, 3, 1, 0x409)
+# # Use Typographic Family Name as Family Name
+# if ttFont["name"].getName(16, 1, 0, 0):
+#     familyName = ttFont["name"].getName(16, 1, 0, 0).toUnicode()
+#     ttFont["name"].setName(familyName, 1, 1, 0, 0)
+#     ttFont["name"].setName(familyName, 1, 3, 1, 0x409)
+#     ttFont["name"].removeNames(16, 1, 0, 0)
+#     ttFont["name"].removeNames(16, 3, 1, 0x409)
+# if ttFont["name"].getName(17, 1, 0, 0):
+#     styleName = ttFont["name"].getName(17, 1, 0, 0).toUnicode()
+#     ttFont["name"].setName(styleName, 2, 1, 0, 0)
+#     ttFont["name"].setName(styleName, 2, 3, 1, 0x409)
+#     ttFont["name"].removeNames(17, 1, 0, 0)
+#     ttFont["name"].removeNames(17, 3, 1, 0x409)
 
-# Set PostScript name
-ttFont["name"].setName(postScriptName, 6, 1, 0, 0)
-ttFont["name"].setName(postScriptName, 6, 3, 1, 0x409)
+# # Set PostScript name
+# ttFont["name"].setName(postScriptName, 6, 1, 0, 0)
+# ttFont["name"].setName(postScriptName, 6, 3, 1, 0x409)
 
 # Unused, just for reference
 # ttFont["head"].macStyle |= 1 << 1  # Set Italic bit
@@ -107,28 +317,15 @@ ttFont["name"].setName(postScriptName, 6, 3, 1, 0x409)
 # ttFont["OS/2"].fsSelection &= ~(1 << 6)  # Clear Regular bit
 # ttFont["OS/2"].fsSelection |= 1 << 0  # Set Italic bit
 
-fullName = (
-    str(ttFont["name"].getName(1, 1, 0, 0))
-    + " "
-    + str(ttFont["name"].getName(2, 1, 0, 0))
-)
-print(fullName)
+# fullName = (
+#     str(ttFont["name"].getName(1, 1, 0, 0))
+#     + " "
+#     + str(ttFont["name"].getName(2, 1, 0, 0))
+# )
 
 # Set full name
-ttFont["name"].setName(fullName, 4, 1, 0, 0)
-ttFont["name"].setName(fullName, 4, 3, 1, 0x409)
+ttFont["name"].setName(f"{familyName} {styleName}", 4, 1, 0, 0)
+ttFont["name"].setName(f"{familyName} {styleName}", 4, 3, 1, 0x409)
 
-# Set fsSelection
-if " Italic" in fullName:
-    ttFont["OS/2"].fsSelection |= 1 << 0  # Set Italic bit
-else:
-    ttFont["OS/2"].fsSelection &= ~(1 << 0)  # Clear Italic bit
-
-    if " Bold" in fullName:
-        ttFont["OS/2"].fsSelection |= 1 << 5  # Set Bold
-        ttFont["OS/2"].fsSelection &= ~(1 << 6)  # Clear Regular bit
-    else:
-        ttFont["OS/2"].fsSelection |= 1 << 6  # Set Regular
-        ttFont["OS/2"].fsSelection &= ~(1 << 5)  # Clear Bold bit
 
 ttFont.save(outputpath)
