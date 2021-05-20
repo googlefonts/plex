@@ -217,26 +217,32 @@ for key in map[variant][weightClass]:
     # Other
     elif type(key) == str:
 
+        values = map[variant][weightClass][key]
+
         # Read
         if key == "fsSelection":
-            bit = ttFont["OS/2"].fsSelection
-        elif key == "macStyle":
-            bit = ttFont["head"].macStyle
 
-        # Adjust
-        values = map[variant][weightClass][key]
-        if type(values) != list:
-            values = [values]
-        for value in values:
-            if value != None:
-                bit |= 1 << value
-                print(f"Setting {bit} to {value}")
+            if type(values) != list:
+                values = [values]
 
-        # Apply
-        if key == "fsSelection":
-            ttFont["OS/2"].fsSelection = bit
+            for value in [5, 6, 0]:
+                ttFont["OS/2"].fsSelection &= ~(1 << value)
+
+            for value in values:
+                if value != None:
+                    ttFont["OS/2"].fsSelection |= 1 << value
+
         elif key == "macStyle":
-            ttFont["head"].macStyle = bit
+
+            if type(values) != list:
+                values = [values]
+
+            for value in [0, 1]:
+                ttFont["head"].macStyle &= ~(1 << value)
+
+            for value in values:
+                if value != None:
+                    ttFont["head"].macStyle |= 1 << value
 
 
 # # Copyright Notice
