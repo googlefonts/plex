@@ -4,6 +4,6 @@ The idea is that the original files remain in place, can be updated from the ups
 
 # Usage
 
-From the repo’s root folder, run `sh Google-Fonts-Fixes/convert-sans.sh` (adjust for other families) in the command line, or `sh Google-Fonts-Fixes/convert-all.sh`.
+From the repo’s root folder, run `sh Google-Fonts-Fixes/scripts/convert-sans.sh` (adjust for other families) in the command line, or `sh Google-Fonts-Fixes/scripts/convert-all.sh`.
 
 
