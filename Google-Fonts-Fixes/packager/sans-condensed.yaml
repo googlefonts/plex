@@ -5,7 +5,7 @@ category: SANS_SERIF
 designer: Mike Abbink, Bold Monday
 files:
   LICENSE.txt: OFL.txt
-  Google-Fonts-Fixes/descriptions/sans-condensed.html: DESCRIPTION.en_us.html
+  Google-Fonts-Fixes/descriptions/DESCRIPTION.en_us.html: DESCRIPTION.en_us.html
   Google-Fonts-Fixes/fonts/IBM-Plex-Sans-Condensed/fonts/complete/ttf/IBMPlexSansCondensed-Bold.ttf: IBMPlexSansCondensed-Bold.ttf
   Google-Fonts-Fixes/fonts/IBM-Plex-Sans-Condensed/fonts/complete/ttf/IBMPlexSansCondensed-BoldItalic.ttf: IBMPlexSansCondensed-BoldItalic.ttf
   Google-Fonts-Fixes/fonts/IBM-Plex-Sans-Condensed/fonts/complete/ttf/IBMPlexSansCondensed-ExtraLight.ttf: IBMPlexSansCondensed-ExtraLight.ttf

@@ -5,7 +5,7 @@ category: SERIF
 designer: Mike Abbink, Bold Monday
 files:
   LICENSE.txt: OFL.txt
-  Google-Fonts-Fixes/descriptions/sans.html: DESCRIPTION.en_us.html
+  Google-Fonts-Fixes/descriptions/DESCRIPTION.en_us.html: DESCRIPTION.en_us.html
   Google-Fonts-Fixes/fonts/IBM-Plex-Serif/fonts/complete/ttf/IBMPlexSerif-Bold.ttf: IBMPlexSerif-Bold.ttf
   Google-Fonts-Fixes/fonts/IBM-Plex-Serif/fonts/complete/ttf/IBMPlexSerif-BoldItalic.ttf: IBMPlexSerif-BoldItalic.ttf
   Google-Fonts-Fixes/fonts/IBM-Plex-Serif/fonts/complete/ttf/IBMPlexSerif-ExtraLight.ttf: IBMPlexSerif-ExtraLight.ttf
