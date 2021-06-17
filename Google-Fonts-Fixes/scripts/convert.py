@@ -278,13 +278,14 @@ for record in ttFont["name"].names:
         ttFont["name"].removeNames(record.nameID, 1, 0, 0)
 
 # Customized vertical metrics for Serif
+ttFont["OS/2"].sTypoAscender = ttFont["hhea"].ascent
+ttFont["OS/2"].sTypoDescender = ttFont["hhea"].descent
+ttFont["OS/2"].sTypoLineGap = ttFont["hhea"].lineGap
+
+ttFont["OS/2"].version = 4  # Enable setting of fsSelection bit 7
+ttFont["OS/2"].fsSelection |= 1 << 7  # Use Typo Metrics
+
 if familyName == "IBM Plex Serif":
-    ttFont["hhea"].ascent = 1025
-    ttFont["hhea"].descent = -275
-    ttFont["hhea"].linegap = 0
-    ttFont["OS/2"].sTypoAscender = 1025
-    ttFont["OS/2"].sTypoDescender = -275
-    ttFont["OS/2"].sTypoLineGap = 0
     ttFont["OS/2"].usWinAscent = 1150
     ttFont["OS/2"].usWinDescent = 286
 
