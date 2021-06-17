@@ -289,4 +289,9 @@ if familyName == "IBM Plex Serif":
     ttFont["OS/2"].usWinAscent = 1150
     ttFont["OS/2"].usWinDescent = 286
 
+if familyName == "IBM Plex Sans Arabic":
+    ttFont["OS/2"].usWinAscent = 1128
+    ttFont["OS/2"].usWinDescent = 601
+
+
 ttFont.save(outputpath)
