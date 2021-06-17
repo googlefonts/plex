@@ -225,9 +225,11 @@ for key in map[variant][weightClass]:
             if type(values) != list:
                 values = [values]
 
+            # Unset bits
             for value in [0, 5, 6]:
                 ttFont["OS/2"].fsSelection &= ~(1 << value)
 
+            # Set bits
             for value in values:
                 if value != None:
                     ttFont["OS/2"].fsSelection |= 1 << value
