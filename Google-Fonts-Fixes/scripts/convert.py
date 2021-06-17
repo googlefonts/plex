@@ -277,4 +277,15 @@ for record in ttFont["name"].names:
     if record.platformID == 1:
         ttFont["name"].removeNames(record.nameID, 1, 0, 0)
 
+# Customized vertical metrics for Serif
+if familyName == "IBM Plex Serif":
+    ttFont["hhea"].ascent = 1025
+    ttFont["hhea"].descent = -275
+    ttFont["hhea"].linegap = 0
+    ttFont["OS/2"].sTypoAscender = 1025
+    ttFont["OS/2"].sTypoDescender = -275
+    ttFont["OS/2"].sTypoLineGap = 0
+    ttFont["OS/2"].usWinAscent = 1150
+    ttFont["OS/2"].usWinDescent = 286
+
 ttFont.save(outputpath)
