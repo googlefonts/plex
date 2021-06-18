@@ -297,7 +297,6 @@ if familyName == "IBM Plex Sans Arabic":
     ttFont["OS/2"].usWinDescent = 601
 
 if familyName == "IBM Plex Sans Hebrew":
-    # ttFont["OS/2"].usWinAscent = X # No fontbakery complaint
     ttFont["OS/2"].usWinDescent = 365
 
 if familyName == "IBM Plex Sans Devanagari":
@@ -308,5 +307,8 @@ if familyName == "IBM Plex Sans KR":
     ttFont["OS/2"].sTypoAscender = 880
     ttFont["OS/2"].sTypoDescender = -120
     ttFont["OS/2"].sTypoLineGap = 0
+
+if familyName == "IBM Plex Sans Thai Looped":
+    ttFont["OS/2"].usWinAscent = 1239
 
 ttFont.save(outputpath)
