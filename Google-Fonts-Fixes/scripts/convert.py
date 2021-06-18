@@ -279,14 +279,15 @@ for record in ttFont["name"].names:
     if record.platformID == 1:
         ttFont["name"].removeNames(record.nameID, 1, 0, 0)
 
-# Customized vertical metrics for Serif
-ttFont["OS/2"].sTypoAscender = ttFont["hhea"].ascent
-ttFont["OS/2"].sTypoDescender = ttFont["hhea"].descent
-ttFont["OS/2"].sTypoLineGap = ttFont["hhea"].lineGap
+# General vertical metric adjustments only for non-CJK fonts:
+if familyName not in ["IBM Plex Sans KR"]:
+    ttFont["OS/2"].sTypoAscender = ttFont["hhea"].ascent
+    ttFont["OS/2"].sTypoDescender = ttFont["hhea"].descent
+    ttFont["OS/2"].sTypoLineGap = ttFont["hhea"].lineGap
+    ttFont["OS/2"].version = 4  # Enable setting of fsSelection bit 7
+    ttFont["OS/2"].fsSelection |= 1 << 7  # Use Typo Metrics
 
-ttFont["OS/2"].version = 4  # Enable setting of fsSelection bit 7
-ttFont["OS/2"].fsSelection |= 1 << 7  # Use Typo Metrics
-
+# Custom adjustments for each family according to fontbakery reports
 if familyName == "IBM Plex Serif":
     ttFont["OS/2"].usWinAscent = 1150
     ttFont["OS/2"].usWinDescent = 286
@@ -296,11 +297,16 @@ if familyName == "IBM Plex Sans Arabic":
     ttFont["OS/2"].usWinDescent = 601
 
 if familyName == "IBM Plex Sans Hebrew":
-    # ttFont["OS/2"].usWinAscent = 1128 # No fontbakery complaint
+    # ttFont["OS/2"].usWinAscent = X # No fontbakery complaint
     ttFont["OS/2"].usWinDescent = 365
 
 if familyName == "IBM Plex Sans Devanagari":
     ttFont["OS/2"].usWinAscent = 1099
     ttFont["OS/2"].usWinDescent = 488
+
+if familyName == "IBM Plex Sans KR":
+    ttFont["OS/2"].sTypoAscender = 880
+    ttFont["OS/2"].sTypoDescender = -120
+    ttFont["OS/2"].sTypoLineGap = 0
 
 ttFont.save(outputpath)
