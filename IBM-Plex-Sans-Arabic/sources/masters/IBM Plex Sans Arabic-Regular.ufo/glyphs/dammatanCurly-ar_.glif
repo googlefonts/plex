@@ -86,12 +86,4 @@
       <point x="203.0" y="698.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni08E8</string>
-      <key>com.type-invaders.name.production</key>
-      <string>dammatanCurly-ar</string>
-    </dict>
-  </lib>
 </glyph>

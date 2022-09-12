@@ -4,7 +4,7 @@
   <unicode hex="20A1"/>
   <outline>
     <contour>
-      <point x="313" y="-82" type="line" name="hr00"/>
+      <point x="313" y="-82" type="line" name=""/>
       <point x="383" y="-82" type="line"/>
       <point x="392" y="10" type="line"/>
       <point x="491" y="22"/>
@@ -67,19 +67,4 @@
       <point x="202" y="250"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni20A1</string>
-      <key>com.type-invaders.name.production</key>
-      <string>coloncurrency</string>
-      <key>com.typemytype.robofont.mark</key>
-      <array>
-        <real>0.986</real>
-        <real>1.0</real>
-        <real>0.6</real>
-        <real>1.0</real>
-      </array>
-    </dict>
-  </lib>
 </glyph>

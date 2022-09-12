@@ -22,12 +22,4 @@
       <point x="139.0" y="586.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni064B</string>
-      <key>com.type-invaders.name.production</key>
-      <string>fathatan-ar</string>
-    </dict>
-  </lib>
 </glyph>

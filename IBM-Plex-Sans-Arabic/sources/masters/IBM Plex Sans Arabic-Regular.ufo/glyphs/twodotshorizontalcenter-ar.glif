@@ -38,12 +38,4 @@
       <point x="129.0" y="418.0" type="move" name="_center"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>twodotshorizontalcenterar</string>
-      <key>com.type-invaders.name.production</key>
-      <string>twodotshorizontalcenter-ar</string>
-    </dict>
-  </lib>
 </glyph>

@@ -52,12 +52,4 @@
       <point x="136.0" y="369.0" type="move" name="bottom"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni08EF</string>
-      <key>com.type-invaders.name.production</key>
-      <string>toneloopbelow-ar</string>
-    </dict>
-  </lib>
 </glyph>

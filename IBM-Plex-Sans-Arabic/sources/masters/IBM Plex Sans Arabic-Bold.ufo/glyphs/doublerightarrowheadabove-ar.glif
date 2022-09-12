@@ -30,12 +30,4 @@
       <point x="240.0" y="283.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni08FB</string>
-      <key>com.type-invaders.name.production</key>
-      <string>doublerightarrowheadabove-ar</string>
-    </dict>
-  </lib>
 </glyph>

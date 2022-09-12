@@ -60,12 +60,4 @@
       <point x="121.0" y="562.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni06DA</string>
-      <key>com.type-invaders.name.production</key>
-      <string>jeemabove-ar</string>
-    </dict>
-  </lib>
 </glyph>

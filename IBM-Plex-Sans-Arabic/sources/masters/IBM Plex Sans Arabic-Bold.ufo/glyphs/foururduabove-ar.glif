@@ -45,12 +45,4 @@
       <point x="133.0" y="643.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>foururduabovear</string>
-      <key>com.type-invaders.name.production</key>
-      <string>foururduabove-ar</string>
-    </dict>
-  </lib>
 </glyph>

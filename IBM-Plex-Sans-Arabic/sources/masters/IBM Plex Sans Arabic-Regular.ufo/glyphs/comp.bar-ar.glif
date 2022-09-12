@@ -15,12 +15,4 @@
       <point x="260.0" y="369.0" type="move" name="_tail"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>comp.barar</string>
-      <key>com.type-invaders.name.production</key>
-      <string>comp.bar-ar</string>
-    </dict>
-  </lib>
 </glyph>

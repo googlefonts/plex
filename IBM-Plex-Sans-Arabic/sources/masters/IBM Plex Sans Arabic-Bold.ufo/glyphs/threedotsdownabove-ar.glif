@@ -58,12 +58,4 @@
       <point x="158.0" y="643.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uniFBB8</string>
-      <key>com.type-invaders.name.production</key>
-      <string>threedotsdownabove-ar</string>
-    </dict>
-  </lib>
 </glyph>

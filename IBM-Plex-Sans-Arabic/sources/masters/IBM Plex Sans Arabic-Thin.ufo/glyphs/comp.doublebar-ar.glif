@@ -18,12 +18,4 @@
       <point x="120.0" y="379.0" type="move" name="_bar"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>comp.doublebarar</string>
-      <key>com.type-invaders.name.production</key>
-      <string>comp.doublebar-ar</string>
-    </dict>
-  </lib>
 </glyph>

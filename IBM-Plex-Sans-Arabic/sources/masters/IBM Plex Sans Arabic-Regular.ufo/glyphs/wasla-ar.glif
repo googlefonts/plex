@@ -47,12 +47,4 @@
       <point x="147.0" y="553.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>waslaar</string>
-      <key>com.type-invaders.name.production</key>
-      <string>wasla-ar</string>
-    </dict>
-  </lib>
 </glyph>

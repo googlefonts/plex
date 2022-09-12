@@ -42,12 +42,4 @@
       <point x="194.0" y="595.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uniFBBD</string>
-      <key>com.type-invaders.name.production</key>
-      <string>twodotsverticalabove-ar</string>
-    </dict>
-  </lib>
 </glyph>

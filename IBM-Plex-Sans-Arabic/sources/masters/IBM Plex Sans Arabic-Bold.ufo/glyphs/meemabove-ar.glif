@@ -41,12 +41,4 @@
       <point x="128.0" y="530.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni06D8</string>
-      <key>com.type-invaders.name.production</key>
-      <string>meemabove-ar</string>
-    </dict>
-  </lib>
 </glyph>

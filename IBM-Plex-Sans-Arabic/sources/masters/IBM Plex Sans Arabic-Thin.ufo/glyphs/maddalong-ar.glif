@@ -33,12 +33,4 @@
       <point x="154.0" y="423.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni06E4</string>
-      <key>com.type-invaders.name.production</key>
-      <string>maddalong-ar</string>
-    </dict>
-  </lib>
 </glyph>

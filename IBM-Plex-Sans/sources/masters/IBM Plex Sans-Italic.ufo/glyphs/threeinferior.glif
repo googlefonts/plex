@@ -32,7 +32,7 @@
       <point x="195" y="189" type="line"/>
       <point x="241" y="198"/>
       <point x="283" y="232"/>
-      <point x="283" y="285" type="curve" smooth="yes" name="hr01"/>
+      <point x="283" y="285" type="curve" smooth="yes" name=""/>
       <point x="283" y="335"/>
       <point x="243" y="375"/>
       <point x="173" y="375" type="curve" smooth="yes"/>
@@ -54,19 +54,4 @@
       <point x="142" y="216" type="curve" smooth="yes"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni2083</string>
-      <key>com.type-invaders.name.production</key>
-      <string>threeinferior</string>
-      <key>com.typemytype.robofont.mark</key>
-      <array>
-        <real>0.986</real>
-        <real>1.0</real>
-        <real>0.6</real>
-        <real>1.0</real>
-      </array>
-    </dict>
-  </lib>
 </glyph>

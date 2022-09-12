@@ -22,12 +22,4 @@
       <point x="63.0" y="438.0" type="move" name="_center"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>dotcenterar</string>
-      <key>com.type-invaders.name.production</key>
-      <string>dotcenter-ar</string>
-    </dict>
-  </lib>
 </glyph>

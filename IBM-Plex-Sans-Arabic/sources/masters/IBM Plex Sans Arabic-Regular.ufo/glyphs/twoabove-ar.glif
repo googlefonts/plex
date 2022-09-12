@@ -31,12 +31,4 @@
       <point x="116.0" y="618.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>twoabovear</string>
-      <key>com.type-invaders.name.production</key>
-      <string>twoabove-ar</string>
-    </dict>
-  </lib>
 </glyph>

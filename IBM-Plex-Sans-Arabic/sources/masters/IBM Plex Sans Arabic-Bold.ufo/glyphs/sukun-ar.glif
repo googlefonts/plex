@@ -40,12 +40,4 @@
       <point x="130.0" y="599.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni0652</string>
-      <key>com.type-invaders.name.production</key>
-      <string>sukun-ar</string>
-    </dict>
-  </lib>
 </glyph>

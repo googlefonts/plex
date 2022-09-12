@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <glyph name="uniFBC0" format="1">
   <advance width="262"/>
+  <unicode hex="FBC0"/>
   <outline>
     <component base="comp.tahmini-ar"/>
     <contour>

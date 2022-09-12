@@ -16,12 +16,4 @@
       <point x="88.0" y="427.0" type="move" name="bottom"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni061A</string>
-      <key>com.type-invaders.name.production</key>
-      <string>kasrasmall-ar</string>
-    </dict>
-  </lib>
 </glyph>

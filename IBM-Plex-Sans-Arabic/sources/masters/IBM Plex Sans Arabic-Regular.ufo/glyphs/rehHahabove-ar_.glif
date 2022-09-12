@@ -52,12 +52,4 @@
       <point x="156.0" y="499.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni0612</string>
-      <key>com.type-invaders.name.production</key>
-      <string>rehHahabove-ar</string>
-    </dict>
-  </lib>
 </glyph>

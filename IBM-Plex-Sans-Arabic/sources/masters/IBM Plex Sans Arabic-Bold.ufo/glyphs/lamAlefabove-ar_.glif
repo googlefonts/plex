@@ -39,12 +39,4 @@
       <point x="104.0" y="655.0" type="move" name="top"/>
     </contour>
   </outline>
-  <lib>
-    <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>uni06D9</string>
-      <key>com.type-invaders.name.production</key>
-      <string>lamAlefabove-ar</string>
-    </dict>
-  </lib>
 </glyph>

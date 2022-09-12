@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <glyph name="uniFBBC" format="1">
   <advance width="120"/>
+  <unicode hex="FBBC"/>
   <outline>
     <contour>
       <point x="21" y="369" type="line" name="hr00"/>

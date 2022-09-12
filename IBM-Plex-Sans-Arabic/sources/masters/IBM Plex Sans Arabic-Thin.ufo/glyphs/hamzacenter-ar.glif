@@ -9,10 +9,6 @@
   </outline>
   <lib>
     <dict>
-      <key>com.type-invaders.name.final</key>
-      <string>hamzacenterar</string>
-      <key>com.type-invaders.name.production</key>
-      <string>hamzacenter-ar</string>
       <key>com.typemytype.robofont.mark</key>
       <array>
         <real>0.6</real>
