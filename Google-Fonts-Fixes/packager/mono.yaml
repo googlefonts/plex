@@ -1,7 +1,8 @@
 name: IBM Plex Mono
 repository_url: https://github.com/googlefonts/plex
 branch: master
-category: MONOSPACE
+category: 
+  - MONOSPACE
 designer: Mike Abbink, Bold Monday
 files:
   LICENSE.txt: OFL.txt

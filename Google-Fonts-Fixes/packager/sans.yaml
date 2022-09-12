@@ -1,7 +1,8 @@
 name: IBM Plex Sans
 repository_url: https://github.com/googlefonts/plex
 branch: master
-category: SANS_SERIF
+category: 
+  - SANS_SERIF
 designer: Mike Abbink, Bold Monday
 files:
   LICENSE.txt: OFL.txt

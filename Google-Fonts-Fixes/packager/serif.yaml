@@ -1,7 +1,8 @@
 name: IBM Plex Serif
 repository_url: https://github.com/googlefonts/plex
 branch: master
-category: SERIF
+category: 
+  - SERIF
 designer: Mike Abbink, Bold Monday
 files:
   LICENSE.txt: OFL.txt
