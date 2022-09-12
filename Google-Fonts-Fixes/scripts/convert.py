@@ -280,7 +280,7 @@ for record in ttFont["name"].names:
         ttFont["name"].removeNames(record.nameID, 1, 0, 0)
 
 # General vertical metric adjustments only for non-CJK fonts:
-if familyName not in ["IBM Plex Sans KR"]:
+if familyName not in ["IBM Plex Sans KR", "IBM Plex Sans JP"]:
     ttFont["OS/2"].sTypoAscender = ttFont["hhea"].ascent
     ttFont["OS/2"].sTypoDescender = ttFont["hhea"].descent
     ttFont["OS/2"].sTypoLineGap = ttFont["hhea"].lineGap
@@ -310,5 +310,10 @@ if familyName == "IBM Plex Sans KR":
 
 if familyName == "IBM Plex Sans Thai Looped":
     ttFont["OS/2"].usWinAscent = 1239
+
+if familyName == "IBM Plex Sans JP":
+    ttFont["OS/2"].sTypoAscender = 880
+    ttFont["OS/2"].sTypoDescender = -120
+    ttFont["OS/2"].sTypoLineGap = 0
 
 ttFont.save(outputpath)
