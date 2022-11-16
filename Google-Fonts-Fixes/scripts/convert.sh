@@ -8,6 +8,12 @@ for i in $INPUT/*.ttf; do
     python3 Google-Fonts-Fixes/scripts/convert.py $i $OUTPUT;
 done
 
+for i in $OUTPUT/*.ttf; do
+    gftools fix-nonhinting $i $i.fix;
+    mv $i.fix $i;
+done
+
+
 # # After burner
 # for i in $OUTPUT/*.ttf; do
 #     echo "Fixing hinting of $i"
