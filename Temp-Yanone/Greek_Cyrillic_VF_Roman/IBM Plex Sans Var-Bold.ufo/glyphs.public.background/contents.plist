@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>alpha.alt01</key>
+	<string>alpha.alt01.glif</string>
+	<key>delta</key>
+	<string>delta.glif</string>
+	<key>eta</key>
+	<string>eta.glif</string>
+	<key>uni03BC</key>
+	<string>uni03B_C_.glif</string>
+	<key>uni0404</key>
+	<string>uni0404.glif</string>
+	<key>uni042D</key>
+	<string>uni042D_.glif</string>
+	<key>uni042F</key>
+	<string>uni042F_.glif</string>
+	<key>uni0454</key>
+	<string>uni0454.glif</string>
+	<key>uni0472</key>
+	<string>uni0472.glif</string>
+	<key>uni0497</key>
+	<string>uni0497.glif</string>
+	<key>uni049A</key>
+	<string>uni049A_.glif</string>
+	<key>uni049B</key>
+	<string>uni049B_.glif</string>
+	<key>uni04BC</key>
+	<string>uni04B_C_.glif</string>
+	<key>uni04BE</key>
+	<string>uni04B_E_.glif</string>
+	<key>uni04E0</key>
+	<string>uni04E_0.glif</string>
+	<key>uni04E1</key>
+	<string>uni04E_1.glif</string>
+	<key>uni04E8</key>
+	<string>uni04E_8.glif</string>
+</dict>
+</plist>

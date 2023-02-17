@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Lambda</key>
+	<string>L_ambda.glif</string>
+	<key>delta</key>
+	<string>delta.glif</string>
+	<key>lambda</key>
+	<string>lambda.glif</string>
+	<key>nu</key>
+	<string>nu.glif</string>
+	<key>uni042F</key>
+	<string>uni042F_.glif</string>
+	<key>uni0431</key>
+	<string>uni0431.glif</string>
+	<key>uni0472</key>
+	<string>uni0472.glif</string>
+	<key>uni0474</key>
+	<string>uni0474.glif</string>
+	<key>uni0475</key>
+	<string>uni0475.glif</string>
+	<key>uni04BE</key>
+	<string>uni04B_E_.glif</string>
+</dict>
+</plist>

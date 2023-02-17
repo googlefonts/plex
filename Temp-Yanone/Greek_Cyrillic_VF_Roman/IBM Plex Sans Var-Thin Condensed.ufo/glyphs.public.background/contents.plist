@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>B</key>
+	<string>B_.glif</string>
+	<key>breve.cyrl</key>
+	<string>breve.cyrl.glif</string>
+	<key>breve.cyrl_case</key>
+	<string>breve.cyrl_case.glif</string>
+	<key>uni0417</key>
+	<string>uni0417.glif</string>
+	<key>uni0418</key>
+	<string>uni0418.glif</string>
+	<key>uni0437</key>
+	<string>uni0437.glif</string>
+	<key>uni0452</key>
+	<string>uni0452.glif</string>
+	<key>uni0496</key>
+	<string>uni0496.glif</string>
+	<key>uni0497</key>
+	<string>uni0497.glif</string>
+	<key>uni0498</key>
+	<string>uni0498.glif</string>
+	<key>uni049A</key>
+	<string>uni049A_.glif</string>
+	<key>uni049B</key>
+	<string>uni049B_.glif</string>
+	<key>uni049C</key>
+	<string>uni049C_.glif</string>
+	<key>uni049D</key>
+	<string>uni049D_.glif</string>
+	<key>uni049E</key>
+	<string>uni049E_.glif</string>
+	<key>uni049F</key>
+	<string>uni049F_.glif</string>
+	<key>uni04A0</key>
+	<string>uni04A_0.glif</string>
+	<key>uni04A1</key>
+	<string>uni04A_1.glif</string>
+	<key>uni04A7</key>
+	<string>uni04A_7.glif</string>
+	<key>uni04B0</key>
+	<string>uni04B_0.glif</string>
+	<key>uni04B2</key>
+	<string>uni04B_2.glif</string>
+</dict>
+</plist>
