@@ -1,7 +1,7 @@
 {
   "name": "@ibm/plex",
   "description": "The package of IBM’s typeface, IBM Plex",
-  "version": "6.1.1",
+  "version": "6.4.0",
   "repository": "https://github.com/ibm/plex.git",
   "license": "OFL-1.1",
   "keywords": [
@@ -20,7 +20,8 @@
     "!IBM-Plex-Sans-KR/fonts/hinted/**/woff2",
     "!IBM-Plex-Sans-KR/fonts/hinted/**/woff",
     "!IBM-Plex-Sans-JP/fonts/hinted/**/woff2",
-    "!IBM-Plex-Sans-JP/fonts/hinted/**/woff"
+    "!IBM-Plex-Sans-JP/fonts/hinted/**/woff",
+    "telemetry.yml"
   ],
   "scripts": {
     "clean": "rimraf css scss deploy-preview",
@@ -30,6 +31,7 @@
     "build:scss": "node ./scripts/generate-scss.js",
     "build:deploy-preview": "gulp build:deploy-preview",
     "test": "parcel serve ./deploy-preview/index.html",
+    "postinstall": "ibmtelemetry --config=telemetry.yml",
     "precommit": "lint-staged",
     "prettier": "prettier --write \"**/*.{scss}\"",
     "prepare": "husky install && yarn build",
@@ -86,5 +88,8 @@
     "name": "ibm-plex",
     "sassDir": "scss",
     "needs": "*"
+  },
+  "dependencies": {
+    "@ibm/telemetry-js": "^1.5.1"
   }
 }
