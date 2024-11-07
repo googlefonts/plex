@@ -1,7 +1,7 @@
 {
   "name": "@ibm/plex-sans-arabic",
   "description": "The package of IBM’s typeface, IBM Plex Sans Arabic",
-  "version": "0.0.2-alpha.0",
+  "version": "1.0.0",
   "repository": "https://github.com/ibm/plex.git",
   "license": "OFL-1.1",
   "bugs": {
@@ -10,7 +10,9 @@
   "files": [
     "css",
     "scss",
-    "fonts"
+    "fonts/complete/woff/*",
+    "fonts/complete/woff2/*",
+    "telemetry.yml"
   ],
   "publishConfig": {
     "access": "public"
@@ -19,7 +21,11 @@
     "family": "plex-sans-arabic"
   },
   "scripts": {
-    "build": "cd ../ && yarn build"
+    "build": "cd ../ && yarn build",
+    "postinstall": "ibmtelemetry --config=telemetry.yml"
   },
-  "gitHead": "03dea6f4809b5b8b8e3cc3afbedf825379d97900"
+  "gitHead": "03dea6f4809b5b8b8e3cc3afbedf825379d97900",
+  "dependencies": {
+    "@ibm/telemetry-js": "^1.6.1"
+  }
 }
