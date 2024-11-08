@@ -8,11 +8,12 @@ rm $OUTPUT/*.ttf
 # set -e
 
 for i in $INPUT/*.ttf; do
-    python3 Google-Fonts-Fixes/scripts/convert.py $i $OUTPUT;
+    echo $i;
+    python3 Google-Fonts-Fixes/scripts/convert.py "$i" "$OUTPUT";
 done
 
 for i in $OUTPUT/*.ttf; do
-    gftools fix-nonhinting $i $i.fix;
+    gftools fix-nonhinting "$i" "$i.fix";
     mv $i.fix $i;
 done
 
