@@ -83,9 +83,9 @@ if familyName in data["production"]["families"] and get_version(
         data["production"]["families"][familyName]["version"]
     )
 else:
-    raise ValueError(familyName + " version not found in servers.json")
+    production_version = 0
 
-assert production_version
+assert production_version is not None
 incoming_version = get_version(get_name(5))
 assert incoming_version
 
