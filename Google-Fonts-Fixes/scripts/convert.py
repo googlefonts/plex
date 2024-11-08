@@ -92,7 +92,7 @@ assert incoming_version
 print("VERSION STRATEGY:")
 if incoming_version > production_version:
     print(
-        f"Incoming version ({incoming_version}) is higher than production version ({production_version}), so do nothing."
+        f"Incoming version ({incoming_version}) is higher than production version ({production_version}), so use {incoming_version}."
     )
 else:
     apply_version = production_version + 0.001
