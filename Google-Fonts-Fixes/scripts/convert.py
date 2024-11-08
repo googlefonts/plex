@@ -97,7 +97,7 @@ if incoming_version > production_version:
 else:
     apply_version = production_version + 0.001
     print(
-        f"Incoming version ({incoming_version}) is lower than production version ({production_version}), so use prod+.001: {apply_version}"
+        f"Incoming version ({incoming_version}) is lower-or-equal than production version ({production_version}), so use prod+.001: {apply_version}"
     )
 
     # Apply versions
