@@ -1,1 +1,1 @@
-sh Google-Fonts-Fixes/scripts/convert.sh "IBM-Plex-Sans-Thai-Looped/fonts/complete/ttf" "Google-Fonts-Fixes/fonts/IBM-Plex-Sans-Thai-Looped/fonts/complete/ttf"
+sh Google-Fonts-Fixes/scripts/convert.sh "packages/plex-sans-thai-looped/fonts/complete/ttf" "Google-Fonts-Fixes/fonts/IBM-Plex-Sans-Thai-Looped/fonts/complete/ttf"
