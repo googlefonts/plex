@@ -17,7 +17,7 @@ if not os.path.exists(outputfolder):
 filename = (
     os.path.basename(path)
     .replace("-Roman", "-Regular")
-    .replace("IBMPlexSansVar", "IBMPlexSans")
+    .replace("IBM Plex Sans Var", "IBMPlexSans")
 )
 outputpath = os.path.join(outputfolder, filename)
 postScriptName = os.path.splitext(filename)[0]
