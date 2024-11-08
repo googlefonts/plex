@@ -362,6 +362,7 @@ for record in ttFont["name"].names:
     new_name = (
         get_name(record.nameID)
         .replace(originalPostScriptName, postScriptFullName)
+        .replace("-Regular-Regular", "-Regular")
         .replace("®", "(r)")
         .replace("©", "(c)")
     )
