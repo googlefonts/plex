@@ -2,6 +2,11 @@ import sys
 import os
 from fontTools.ttLib import TTFont
 import axisregistry
+import json
+
+# Versions
+data = json.load(open("Google-Fonts-Fixes/servers.json", "r"))
+
 
 path = sys.argv[-2]
 outputfolder = os.path.abspath(
@@ -53,6 +58,14 @@ def highest_name_ID():
     return max([name.nameID for name in ttFont["name"].names])
 
 
+def get_version(string):
+    return float(string.split(";")[0].split("Version ")[1])
+
+
+def version_string(version):
+    return f"{version:.3f}"
+
+
 # Get family name
 familyName = get_name(16) or get_name(1)
 
@@ -60,6 +73,43 @@ familyName = get_name(16) or get_name(1)
 styleName = get_name(17) or get_name(2)
 
 print(familyName, styleName)
+
+
+# VERSION STRATEGY
+if familyName in data["production"]["families"] and get_version(
+    data["production"]["families"][familyName]["version"]
+):
+    production_version = get_version(
+        data["production"]["families"][familyName]["version"]
+    )
+else:
+    raise ValueError(familyName + " version not found in servers.json")
+
+assert production_version
+incoming_version = get_version(get_name(5))
+assert incoming_version
+
+print("VERSION STRATEGY:")
+if incoming_version > production_version:
+    print(
+        f"Incoming version ({incoming_version}) is higher than production version ({production_version}), so do nothing."
+    )
+else:
+    apply_version = production_version + 0.001
+    print(
+        f"Incoming version ({incoming_version}) is lower than production version ({production_version}), so use prod+.001: {apply_version}"
+    )
+
+    # Apply versions
+    set_name(
+        3,
+        get_name(3).replace(
+            version_string(incoming_version), version_string(apply_version)
+        ),
+    )
+    set_name(5, f"Version {version_string(apply_version)}")
+    ttFont["head"].fontRevision = apply_version
+
 
 # Complete implementation of https://github.com/googlefonts/gf-docs/tree/main/Spec#supported-styles
 map = {

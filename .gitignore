@@ -32,3 +32,5 @@ cdn
 # Packages
 packages/*/css
 packages/*/scss
+
+servers.json
