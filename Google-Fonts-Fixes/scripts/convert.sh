@@ -8,6 +8,13 @@ rm $OUTPUT/*.ttf
 # set -e
 
 for i in $INPUT/*.ttf; do
-    echo $i;
-    sh Google-Fonts-Fixes/scripts/convert_file.sh $i $OUTPUT;
+    echo Input: $i, Output: $OUTPUT;
+    sh Google-Fonts-Fixes/scripts/convert_file.sh "$i" "$OUTPUT";
 done
+
+for i in $OUTPUT/*.ttf; do
+    gftools fix-nonhinting $i $i.fix > /dev/null
+    mv $i.fix $i
+done
+
+rm $OUTPUT/*-backup-*.ttf
