@@ -4,36 +4,6 @@ from fontTools.ttLib import TTFont
 import axisregistry
 import json
 
-# Versions
-data = json.load(open("Google-Fonts-Fixes/servers.json", "r"))
-
-
-path = sys.argv[-2]
-outputfolder = os.path.abspath(
-    os.path.join(os.path.dirname(__file__), "..", "..", sys.argv[-1])
-)
-if not os.path.exists(outputfolder):
-    os.makedirs(outputfolder)
-filename = (
-    os.path.basename(path)
-    .replace("-Roman", "-Regular")
-    .replace("IBM Plex Sans Var", "IBMPlexSans")
-)
-outputpath = os.path.join(outputfolder, filename)
-postScriptName = os.path.splitext(filename)[0]
-
-# Shorten
-postScriptName = postScriptName.replace("Condensed", "Cond").replace("-Roman", "")
-if "-" in postScriptName:
-    postScriptFullName = postScriptName
-    postScriptName, postScriptStylename = postScriptName.split("-")
-else:
-    postScriptStylename = "Regular"
-    postScriptFullName = postScriptName
-
-
-ttFont = TTFont(path)
-
 
 def get_name(nameID):
     for name in ttFont["name"].names:
@@ -43,7 +13,14 @@ def get_name(nameID):
 
 
 def set_name(nameID, value):
-    # print(f"set_name({nameID}, {value})")
+    if value != get_name(nameID):
+        print(
+            "Replacing",
+            nameID,
+            get_name(nameID),
+            "->",
+            value,
+        )
     ttFont["name"].setName(value, nameID, 1, 0, 0)
     ttFont["name"].setName(value, nameID, 3, 1, 0x409)
 
@@ -64,6 +41,63 @@ def get_version(string):
 
 def version_string(version):
     return f"{version:.3f}"
+
+
+print("===")
+
+# Versions
+data = json.load(open("Google-Fonts-Fixes/servers.json", "r"))
+
+
+path = sys.argv[-2]
+ttFont = TTFont(path)
+
+outputfolder = os.path.abspath(
+    os.path.join(os.path.dirname(__file__), "..", "..", sys.argv[-1])
+)
+if not os.path.exists(outputfolder):
+    os.makedirs(outputfolder)
+
+# Replace names
+if "fvar" in ttFont:
+    for record in ttFont["name"].names:
+
+        new_name = (
+            get_name(record.nameID)
+            .replace("IBMPlexSansVar-Roman", "IBMPlexSansVar")
+            # .replace("IBMPlexSans-Regular", "IBMPlexSans")
+            .replace("IBMPlexSansVar", "IBMPlexSans")
+            .replace("IBM Plex Sans Var", "IBM Plex Sans")
+        )
+        set_name(record.nameID, new_name)
+
+# Get original postScriptName
+originalPostScriptName = get_name(6)
+
+if "fvar" in ttFont:
+    filename = axisregistry.build_filename(ttFont)
+    postScriptNames = get_name(4).split(" ")
+    postScriptNames[-1] = "-" + postScriptNames[-1]
+    postScriptName = "".join(postScriptNames)
+    print(
+        "psname:",
+        originalPostScriptName,
+        "->",
+        postScriptName,
+        originalPostScriptName == postScriptName,
+    )
+else:
+    filename = os.path.basename(path).replace("-Roman", "-Regular")
+    postScriptName = os.path.splitext(filename)[0]
+
+    # Shorten
+    postScriptName = postScriptName.replace("Condensed", "Cond").replace("-Roman", "")
+    if "-" in postScriptName:
+        postScriptName, postScriptStylename = postScriptName.split("-")
+    else:
+        postScriptStylename = "Regular"
+
+outputpath = os.path.join(outputfolder, filename)
 
 
 # Get family name
@@ -350,9 +384,12 @@ for key in map[variant][weightClass]:
                 if value != None:
                     ttFont["head"].macStyle |= 1 << value
 
-
-# Get original postScriptName
-originalPostScriptName = get_name(6)
+print(
+    "psname2",
+    originalPostScriptName,
+    postScriptName,
+    originalPostScriptName == postScriptName,
+)
 
 for record in ttFont["name"].names:
 
@@ -361,22 +398,37 @@ for record in ttFont["name"].names:
     # Replace © with (c)
     new_name = (
         get_name(record.nameID)
-        .replace(originalPostScriptName, postScriptFullName)
+        .replace(originalPostScriptName, postScriptName)
         .replace("-Regular-Regular", "-Regular")
         .replace("®", "(r)")
         .replace("©", "(c)")
     )
-    if new_name != get_name(record.nameID):
-        print(
-            "Replacing",
-            get_name(record.nameID),
-            "->",
-            new_name,
-        )
     set_name(record.nameID, new_name)
+
+
+if "fvar" in ttFont:
+    for record in ttFont["name"].names:
+
+        if record.nameID >= 256:
+            new_name = (
+                get_name(record.nameID)
+                .replace("ExtLt", "ExtraLight")
+                .replace("Medm", "Medium")
+                .replace("SmBld", "SemiBold")
+            )
+            if "Cond" in new_name and "Condensed" not in new_name:
+                new_name = new_name.replace("Cond", "Condensed")
+            if "Ita" in new_name and "Italic" not in new_name:
+                new_name = new_name.replace("Ita", "Italic")
+            new_name = new_name.replace("RegularItalic", "Italic")
+            set_name(record.nameID, new_name)
 
 # Set full name
 set_name(4, f"{familyName} {styleName}")
+
+# Set PostScript Name (VF)
+if "fvar" in ttFont:
+    set_name(6, postScriptName)
 
 # Sad but true, drop all Mac names
 for record in ttFont["name"].names:
@@ -420,7 +472,7 @@ if familyName == "IBM Plex Sans JP":
     ttFont["OS/2"].sTypoDescender = -120
     ttFont["OS/2"].sTypoLineGap = 0
 
-if familyName == "IBM Plex Sans Var":
+if familyName == "IBM Plex Sans":  # (Includes VAR)
     ttFont["OS/2"].usWinAscent = 1120
 
 # Delete forbidden fvar instances
@@ -447,6 +499,10 @@ if "STAT" in ttFont:
 
     for axisValue in stat.table.AxisValueArray.AxisValue:
 
+        # Setting new name IDs below because I found that more than one
+        # data point were using the name "Regular" and all pointing
+        # # to the same name ID
+
         # wdth Regular->Normal
         if (
             axisValue.AxisIndex == get_axis("wdth")[0]
@@ -466,50 +522,7 @@ if "STAT" in ttFont:
             axisValue.Value = 75.0
             ttFont["fvar"].axes[axisValue.AxisIndex].minValue = 75.0
 
-        # Make new non-"Italic" names for STAT table
-        # if axisValue.AxisIndex == get_axis("wght")[0] and "Italic" in get_name(
-        #     axisValue.ValueNameID
-        # ):
-        if "Italic" in get_name(axisValue.ValueNameID):
-            new_name = (
-                get_name(axisValue.ValueNameID)
-                .replace(" Italic", "")
-                .replace("Italic", "Regular")
-            )
-            if get_name(axisValue.ValueNameID) != new_name:
-                newID = highest_name_ID() + 1
-                print(
-                    "Adding",
-                    axisValue.ValueNameID,
-                    get_name(axisValue.ValueNameID),
-                    "->",
-                    newID,
-                    new_name,
-                )
-                set_name(newID, new_name)
-                axisValue.ValueNameID = newID
-
     ttFont["STAT"] = stat
-
-    # Replace names
-    for record in ttFont["name"].names:
-
-        new_name = (
-            get_name(record.nameID)
-            .replace("IBMPlexSansVar-Roman", "IBMPlexSansVar")
-            .replace("IBMPlexSans-Regular", "IBMPlexSans")
-            .replace("IBMPlexSansVar", "IBMPlexSans")
-            .replace("IBM Plex Sans Var", "IBM Plex Sans")
-        )
-        if new_name != get_name(record.nameID):
-            print(
-                "Replacing",
-                record.nameID,
-                get_name(record.nameID),
-                "->",
-                new_name,
-            )
-            set_name(record.nameID, new_name)
 
     # Set default instance PS name
     for axisValue in stat.table.AxisValueArray.AxisValue:
@@ -520,10 +533,6 @@ if "STAT" in ttFont:
             newID = highest_name_ID() + 1
             set_name(newID, "Normal")
             axisValue.ValueNameID = newID
-
-    for record in ttFont["name"].names:
-        if get_name(record.nameID) == "IBMPlexSans":
-            set_name(record.nameID, os.path.splitext(filename)[0])
 
 
 ttFont.save(outputpath)
