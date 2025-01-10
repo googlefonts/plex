@@ -17,7 +17,7 @@ However, at some point something went wrong with the versions on Google Fonts an
 Therefore, the conversion script will follow the following strategy:
 
 1. If the latest IBM version is higher than the latest GF production version, use the IBM version.
-2. If the latest IBM version is lower or equal than the latest GF production version, increase the GF version by 0.001 increment until eventually the IBM versions will outpace the GF versions and they will be in sync again.
+2. If the latest IBM version is lower or equal than the latest GF production version, increase the GF version by 0.001 increment until eventually the IBM versions will outpace the GF versions (by increasing faster than 0.001 inctements) and they will be in sync again.
 
 Sorry for the confusion and inconvenience
 - Yanone
