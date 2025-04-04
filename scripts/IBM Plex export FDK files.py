@@ -464,6 +464,6 @@ if FLmode != True:
 	print '* ERROR - this script requires FontLab *'
 elif hasRF != True:
 	print '* ERROR - this script requires installation of RoboFab library *'
-	print 'More info: https://github.com/robofab-developers/robofab'
+	print 'More info: robofab repos online'
 else:
 	run()
