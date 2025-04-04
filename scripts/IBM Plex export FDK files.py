@@ -5,7 +5,7 @@
 	* IBM Plex export for FDK *
 	written for FontLab 5
 	exports all files necessary for AFDKO to compile an OTF or TTF font
-	requires RoboFab: https://github.com/robofab-developers/robofab
+	requires RoboFab
 
 	version: 1.0
 	author: Paul van der Laan
