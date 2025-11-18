@@ -82,7 +82,7 @@
   "dependencies": {
     "@carbon/ibmdotcom-services": "^2.11.1",
     "@carbon/ibmdotcom-utilities": "^2.11.1",
-    "glob": "^10.3.12",
+    "glob": "^11.1.0",
     "minimist": "^1.2.8"
   }
 }
